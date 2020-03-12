@@ -117,7 +117,7 @@ router.delete('/:id', (req, res) => {
 
      Hubs.update(id, edit)
         .then(updated => {
-            if(updated.id === !id){
+            if(updated.id != id){
                 res.status(404).json({err: "post with that id is not found"})
             } else if(!edit.title || !edit.contents) {
                 res.status(400).json({err: "missing title and contents"})
